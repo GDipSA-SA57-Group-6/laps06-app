@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+EmployeeController: 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+package sg.nus.iss.laps.controller;
 
-### `npm start`
+import java.util.List;
+import java.util.Optional;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+import sg.nus.iss.laps.model.Employee;
+import sg.nus.iss.laps.service.EmployeeService;
 
-### `npm test`
+@CrossOrigin
+@RestController
+@RequestMapping("/api")
+public class EmployeeController {
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+	  @Autowired
+	  private EmployeeService employeeService;
+	  
+	  @GetMapping("/employees")
+	  public List<Employee> getAllEmployees() {
+	    return employeeService.findAllEmployees();
+	  }
+	  
+	  @GetMapping("/employees/{id}")
+	  public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") int id) {
+	    Optional<Employee> optEmployee = employeeService.findEmployee(id);
+	    
+	    if (optEmployee.isPresent()) {
+	      Employee employee = optEmployee.get();
+	      return new ResponseEntity<Employee>(employee, HttpStatus.OK);
+	    } else {
+	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }
+	  }
+	  
+	  @PostMapping("/employees")
+	  public ResponseEntity<Employee> createEmployee(@RequestBody Employee inEmployee) {
+	    try {
+	      Employee retEmployee = employeeService.createEmployee(inEmployee);      
+	      
+	      return new ResponseEntity<Employee>(retEmployee, HttpStatus.CREATED);
+	    } catch (Exception e) {
+	      return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+	    }
+	  }
+	  
+	  
+	  @PutMapping("/employees/{id}")
+	  public ResponseEntity<Employee> editEmployee(@PathVariable("id") int id, @RequestBody Employee inEmployee) {
+	    Optional<Employee> optEmployee = employeeService.findEmployee(id);
+	    
+	    if (optEmployee.isPresent()) {
+	      
+	      Employee employee = optEmployee.get();
+	      
+	      employee.setEmployeeId(inEmployee.getEmployeeId());
+	      employee.setName(inEmployee.getName());
+	      employee.setManagerId(inEmployee.getManagerId());
+	      
+	      Employee updatedEmployee = employeeService.updateEmployee(employee);
+	      
+	      return new ResponseEntity<Employee>(updatedEmployee, HttpStatus.OK);
+	    } else {
+	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }
+	  }
+	  
