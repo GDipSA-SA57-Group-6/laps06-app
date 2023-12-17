@@ -1,3 +1,6 @@
+LF: 17th Dec 2pm: To add @CrossOrigin at controller. I completed AdminDelete(success on my own data only), AdminGet, AdminList
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
