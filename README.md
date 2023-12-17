@@ -1,5 +1,9 @@
-EmployeeController: 
+17th Dec 2pm: To add @CrossOrigin at controller. I completed AdminDelete(success on my own data only), Admin Get, Admin List
 
+
+
+EmployeeController: 
+(for CreateEmployee, EditEmployee, ListEmployee inc. Delete Employee)
 
 
 package sg.nus.iss.laps.controller;
