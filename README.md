@@ -1,4 +1,4 @@
-17th Dec 2pm: To add @CrossOrigin at controller. I completed AdminDelete(success on my own data only), Admin Get, Admin List
+17th Dec 2pm: To add @CrossOrigin at controller. I completed AdminDelete(success on my own data only), AdminGet, AdminList
 
 
 
