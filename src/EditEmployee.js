@@ -1,84 +1,71 @@
-// EditEmployee.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function EditEmployee() {
-  const {id} = useParams();
+export default function AdminGet() {
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const [employee, setEmployee] = useState({
+  const [object, setObject] = useState({
     idElement: id,
     employeeIdElement:'',
     nameElement: '',
     managerIdElement: ''
   });
-
-
   useEffect(() => {
-  // Fetch the details of the selected employee using the received ID
+    console.log("Retrieve the object");
+    // Fetch the details of the selected object using the received ID
     axios
-      .get(`http://localhost:8080/api/employees/${id}`)
+      .get(`http://localhost:8080/api/get/${id}`)
       .then((response) => {
-        setEmployee((employee) => ({
-          ...employee,
-          employeeIdElement: response.data.employeeId,
-          nameElement: response.data.name,
-          managerIdElement: response.data.managerId,
-        }));
+        setObject(response.data);
+        console.log(response.data);
       })
-      .catch((error) => {
-        console.error("Error fetching employee details:", error);
+      .catch((e) => {
+        console.log(e);
       });
-  }, [id, setEmployee]); // Include setEmployee in the dependency array
+  }, [id]);
 
-  const handleEditClick = (e) => {
-    e.preventDefault();
-
-    const updatedData = {
-      employeeId: employee.employeeIdElement,
-      name: employee.nameElement,
-      managerId: employee.managerIdElement
-    };
-    axios
-      .put(`http://localhost:8080/api/employees/${id}`, updatedData)
-      .then((response) => {
-        console.log("Success!");
-        console.log(response.updatedData);
-        navigate("/list-employee");
-      })
-      .catch((error) => {
-        console.error("Error updating employee details:", error);
-      });
+  const handleEditClick = () => {
+    navigate(`/edit-object/${id}`);
   };
 
+  const handleDeleteClick = async () => {
+    try {
+      // Send a DELETE request to delete the object
+      await axios.delete(`http://localhost:8080/api/admin/delete/${id}`);
+      navigate("/list-object");
+    } catch (error) {
+      console.error("Error deleting object:", error);
+    }
+  };
 
   const handleCancelClick = () => {
-    // Redirect to "/list-employee" upon cancel
-    navigate("/list-employee");
+    navigate("/list-object");
   };
 
   return (
     <div>
-      <h2>Edit Employee</h2>
-        <form>
-          <label htmlFor="employeeId">Employee ID</label>
-          <br />
-          <input type="text" name="employeeId" value={employee.employeeIdElement} disabled />
-          <br />
-          <label htmlFor="name">Name</label>
-          <br />
-          <input type="text" name="name" value={employee.nameElement} 
-                onChange={e => setEmployee({...employee, nameElement: e.target.value})}/>
-          <br />
-          <label htmlFor="managerId">Manager ID</label>
-          <br />
-          <input type="text" name="managerId" value={employee.managerIdElement} 
-                  onChange={e => setEmployee({...employee, managerIdElement: e.target.value})}/>
-          <br />
-          <button onClick={handleEditClick}>Save Changes</button>
-          <button onClick={handleCancelClick}>Cancel & Return to Employee List</button>
-        </form>
+      <h2>Object Detail</h2>
+      <form>
+        <label htmlFor="id">Id</label>
+        <br />
+        <input type="text" name="id" value={object.id || ""} readOnly />
+        <br />
+        <label htmlFor="name">Name</label>
+        <br />
+        <input type="text" name="name" value={object.name || ""} readOnly />
+        <br />
+        <button type="button" onClick={handleEditClick}>
+          Edit
+        </button>
+        <button type="button" onClick={handleDeleteClick}>
+          Delete
+        </button>
+        <button type="button" onClick={handleCancelClick}>
+          Return
+        </button>
+      </form>
     </div>
-  )
+  );
 }

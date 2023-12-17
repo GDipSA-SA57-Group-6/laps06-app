@@ -5,19 +5,25 @@ import ListEmployee from "./ListEmployee";
 import CreateEmployee from "./CreateEmployee";
 import EditEmployee from "./EditEmployee";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import AdminList from "./AdminList";
+import AdminGet from "./AdminGet";
+import AdminDelete from "./AdminDelete";
+
 
 function App() {
-
 
   return (
     <BrowserRouter>
     {/*{getNavigationHtml()}*/}
     <div>
         <Routes>
-          <Route path="/" element={<ListEmployee />} />
+          <Route path="/" element={<AdminList />} />
+          <Route path="/admin/get/:user_id" element={<AdminGet />} />
+          <Route path="/admin/list" element={<AdminList />} />
+          <Route path="/admin/delete/:user_id" element={<AdminDelete/>} />
+          
           <Route path="/list-employee" element={<ListEmployee />} />
           <Route path="/create-employee" element={<CreateEmployee />} />
-          
           <Route path="/edit-employee/:id" element={<EditEmployee />} />
           
         </Routes>
@@ -27,30 +33,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-/*
-<Route path="/employee/:id" element={<Employee />} />
-  const employeeList = [
-    {
-      id: 1,
-      employeeId: "A007",
-      name: "laps-06-app_employee1",
-      managerId: "A008",
-    },
-    {
-      id: 2,
-      employeeId: "A002",
-      name: "laps-06-app_employee2",
-      managerId: "A008",
-    }]
-
-  return (
-    <div className="App">
-      <ListEmployee myEmployeeList={employeeList} />
-    </div>
-  );
-*/
-
