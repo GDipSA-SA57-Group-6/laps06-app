@@ -39,13 +39,18 @@ export default function AdminGet() {
 
   const handleEditClick = () => {
     // Navigate to the edit route based on the object's ID
-    navigate(`/api/admin/edit/${object.user_idElement}`);
-  };
-
+    navigate(`/api/admin/update/${object.user_idElement}`);
+  };  
+  
   const handleDeleteClick = () => {
     // Navigate to the delete route based on the object's ID
     navigate(`/api/admin/delete/${object.user_idElement}`);
   };
+
+  const handleCancelClick = () => {
+    navigate("/api/admin/list"); 
+  };
+
 
   return (
     <div>
@@ -73,6 +78,9 @@ export default function AdminGet() {
         </button>
         <button type="button" onClick={handleDeleteClick}>
           Delete
+        </button>
+        <button onClick={handleCancelClick}>
+          Cancel & Return to User List
         </button>
       </form>
     </div>

@@ -57,7 +57,6 @@ export default function AdminDelete() {
   };
 
   const handleCancelDeleteClick = () => {
-    // Handle cancel click, if needed
     navigate("/api/admin/list");
   };
 
@@ -66,27 +65,27 @@ export default function AdminDelete() {
       <button onClick={handleReturnClick}>Return</button>
       <h2>Delete User</h2>
       {showSuccessMessage && <p>User deleted successfully!</p>}
-      <form>
-        <label htmlFor="user_id">User Id</label>
-        <br />
-        <input type="text" name="user_id" value={user.user_idElement} readOnly />
-        <br />
-        <label htmlFor="name">Name</label>
-        <br />
-        <input type="text" name="name" value={user.nameElement} readOnly />
-        <br />
-        <label htmlFor="password">Password</label>
-        <br />
-        <input type="text" name="password" value={user.passwordElement} readOnly />
-        <br />
-        <label htmlFor="userType">User Type</label>
-        <br />
-        <input type="text" name="userType" value={user.userTypeElement} readOnly />
+        <form>
+          <label htmlFor="user_id">User Id</label>
+          <br />
+          <input type="text" name="user_id" value={user.user_idElement} readOnly />
+          <br />
+          <label htmlFor="name">Name</label>
+          <br />
+          <input type="text" name="name" value={user.nameElement} readOnly />
+          <br />
+          <label htmlFor="password">Password</label>
+          <br />
+          <input type="text" name="password" value={user.passwordElement} readOnly />
+          <br />
+          <label htmlFor="userType">User Type</label>
+          <br />
+          <input type="text" name="userType" value={user.userTypeElement} readOnly />
 
-        <br />
-        <button type="button" onClick={handleConfirmDeleteClick}>Confirm Delete</button>
-        <button type="button" onClick={handleCancelDeleteClick}>Cancel</button>
-      </form>
+          <br />
+          <button type="button" onClick={handleConfirmDeleteClick}>Confirm Delete</button>
+          <button type="button" onClick={handleCancelDeleteClick}>Cancel & Return to User List</button>
+        </form>
     </div>
   );
 }

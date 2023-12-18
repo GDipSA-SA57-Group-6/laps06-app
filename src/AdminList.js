@@ -72,7 +72,7 @@ export default function AdminList() {
   };
 
   const handleEditObjectClick = (object) => {
-    navigate(`/api/edit-object/${object.user_id}`);
+    navigate(`/api/admin/update/${object.user_id}`);
   };
 
   const handleDeleteObjectClick = (object) => {

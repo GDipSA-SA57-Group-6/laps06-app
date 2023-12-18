@@ -9,6 +9,7 @@ import AdminList from "./AdminList";
 import AdminGet from "./AdminGet";
 import AdminDelete from "./AdminDelete";
 import AdminCreateUserType from "./AdminCreateUserType";
+import AdminUpdateIdUserType from "./AdminUpdateIdUserType";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/api/admin/list" element={<AdminList />} />
           <Route path="/api/admin/delete/:user_id" element={<AdminDelete/>} />
           <Route path="/api/admin/create/:user_type" element={<AdminCreateUserType/>} />
+          <Route path="/api/admin/update/:user_id" element={<AdminUpdateIdUserType/>} />
 
 
 
