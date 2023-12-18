@@ -1,3 +1,4 @@
+//http://localhost:8080/api/admin/list
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -30,20 +31,52 @@ export default function AdminList() {
       });
   }, []);
 
+  /*
   const handleCreateObjectClick = () => {
     navigate("/create-object");
   };
 
+  const handleCreateObjectClick = () => {
+    const userTypes = ["EMPLOYEE", "MANAGER", "ADMIN"];
+    const selectedUserType = window.prompt("Select user type:\n" + userTypes.join(", "));
+
+    if (selectedUserType && userTypes.includes(selectedUserType.toUpperCase())) {
+      navigate(`/api/admin/create/${selectedUserType.toUpperCase()}`);
+    } else {
+      alert("Invalid user type selected.");
+    }
+  };
+  */
+
+  const handleCreateObjectClick = () => {
+    // Map numeric indices to user types
+    const indexToUserType = {
+      0: "EMPLOYEE",
+      1: "MANAGER",
+      2: "ADMIN"
+    };
+  
+    const selectedUserTypeIndex = parseInt(window.prompt("Select user type:\n0 - EMPLOYEE, 1 - MANAGER, 2 - ADMIN"));
+  
+    // Check if the selected index is valid
+    if (!isNaN(selectedUserTypeIndex) && indexToUserType.hasOwnProperty(selectedUserTypeIndex)) {
+      // Use the numeric index in the URL
+      navigate(`/api/admin/create/${selectedUserTypeIndex}`);
+    } else {
+      alert("Invalid user type selected.");
+    }
+  };
+
   const handleGetObjectClick = (object) => {
-    navigate(`/admin/get/${object.user_id}`);
+    navigate(`/api/admin/get/${object.user_id}`);
   };
 
   const handleEditObjectClick = (object) => {
-    navigate(`/edit-object/${object.user_id}`);
+    navigate(`/api/edit-object/${object.user_id}`);
   };
 
   const handleDeleteObjectClick = (object) => {
-    navigate(`/admin/delete/${object.user_id}`);
+    navigate(`/api/admin/delete/${object.user_id}`);
   };
 
 /*

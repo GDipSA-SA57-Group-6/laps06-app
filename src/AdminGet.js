@@ -1,3 +1,4 @@
+//http://localhost:8080/api/admin/get/${user_id}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -33,17 +34,17 @@ export default function AdminGet() {
   }, [user_id]);
 
   const handleReturnClick = () => {
-    navigate("/admin/list");
+    navigate("/api/admin/list");
   };
 
   const handleEditClick = () => {
     // Navigate to the edit route based on the object's ID
-    navigate(`/admin/edit/${object.user_idElement}`);
+    navigate(`/api/admin/edit/${object.user_idElement}`);
   };
 
   const handleDeleteClick = () => {
     // Navigate to the delete route based on the object's ID
-    navigate(`/admin/delete/${object.user_idElement}`);
+    navigate(`/api/admin/delete/${object.user_idElement}`);
   };
 
   return (

@@ -1,3 +1,4 @@
+//http://localhost:8080/api/admin/get/${user_id}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -17,8 +18,9 @@ export default function AdminDelete() {
 
   useEffect(() => {
     // Fetch the details of the selected user using the received user_id
+    console.log("Fetching data...");
     axios
-      .get(`hhttp://localhost:8080/api/admin/get/${user_id}`)
+      .get(`http://localhost:8080/api/admin/get/${user_id}`)
       .then((response) => {
         setUser({
           user_idElement: response.data.user_id,
@@ -33,7 +35,7 @@ export default function AdminDelete() {
   }, [user_id]);
 
   const handleReturnClick = () => {
-    navigate("/admin/list");
+    navigate("/api/admin/list");
   };
 
   const handleConfirmDeleteClick = async () => {
@@ -47,7 +49,7 @@ export default function AdminDelete() {
       setTimeout(() => {
         setShowSuccessMessage(false);
         // Navigate to another page or perform other actions
-        navigate("/admin/list");
+        navigate("/api/admin/list");
       }, 3000);
     } catch (error) {
       console.error("Error deleting user:", error.message);
@@ -56,7 +58,7 @@ export default function AdminDelete() {
 
   const handleCancelDeleteClick = () => {
     // Handle cancel click, if needed
-    navigate("/admin/list");
+    navigate("/api/admin/list");
   };
 
   return (
