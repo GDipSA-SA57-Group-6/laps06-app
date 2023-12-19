@@ -36,23 +36,38 @@ export default function AdminCreateUserType() {
     axios
       .post(`http://localhost:8080/api/admin/create/${user_type}`, updatedData)
       .then((response) => {
-        console.log("Success!");
-        console.log("Response Data:", response.data);
+          console.log("Success!");
+          console.log("Response Data:", response.data);
 
-        setSuccessMessage(
-          <span style={{ color: "green" }}>User successfully created!</span>
-        );
-        setShowSuccessMessage(true);
+          setSuccessMessage(
+            <span style={{ color: "green" }}>User successfully created! </span>
+          );
+          setShowSuccessMessage(true);
 
-        setTimeout(() => {
+          setTimeout(() => {
           setShowSuccessMessage(false);
-          navigate("/api/admin/list"); // Assuming this is the correct route
+          // Redirect based on user_type
+          if (object.user_typeElement === "0") {
+            setTimeout(() => {
+              navigate("/api/employee/create");
+            }, 3000);
+            setSuccessMessage(
+              <span style={{ color: "blue" }}>Redirecting to create employee page...</span>
+            );
+            setShowSuccessMessage(true);
+          } else {
+            setTimeout(() => {
+              navigate("/api/admin/list");
+            }, 3000);
+          }
         }, 3000); // 3000 milliseconds = 3 seconds
       })
       .catch((error) => {
         console.error("Error creating object:", error);
       });
   };
+  
+
 
   const handleCancelClick = () => {
     navigate("/api/admin/list"); 

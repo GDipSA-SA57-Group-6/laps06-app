@@ -59,19 +59,19 @@ export default function AdminGet() {
       <form>
         <label htmlFor="user_id">User Id</label>
         <br />
-        <input type="text" name="user_id" value={object.user_idElement} />
+        <input type="text" name="user_id" value={object.user_idElement}  disabled/>
         <br />
         <label htmlFor="name">Name</label>
         <br />
-        <input type="text" name="name" value={object.nameElement} />
+        <input type="text" name="name" value={object.nameElement} disabled />
         <br />
         <label htmlFor="password">Password</label>
         <br />
-        <input type="password" name="password" value={object.passwordElement} />
+        <input type="text" name="password" value={object.passwordElement} disabled />
         <br />
         <label htmlFor="userType">User Type</label>
         <br />
-        <input type="text" name="userType" value={object.userTypeElement} />
+        <input type="text" name="userType" value={object.userTypeElement} disabled />
         <br></br>
         <br />
         <button className="mx-2 btn btn-warning" type="button" onClick={handleEditClick}>

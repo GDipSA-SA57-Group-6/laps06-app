@@ -140,12 +140,11 @@ export default function AdminList() {
 
 function renderObjectRows() {
   //<tbody className="text-center">
-  return myObjectList.map((object,index) => (
+  return myObjectList.map((object) => (
     
     <tr key={object.user_id}>
-      <th className = "text-center" scope="row" key={index}>
-        {index+1}
-      </th>
+      <th key={object.user_id}></th>
+      <td className = "text-center">{object.user_id}</td>
       <td className = "text-center">{object.name}</td>
       <td className = "text-center">{object.password}</td>
       <td className = "text-center">{object.userType}</td>

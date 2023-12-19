@@ -13,6 +13,11 @@ import AdminDelete from "./AdminDelete";
 import AdminCreateUserType from "./AdminCreateUserType";
 import AdminUpdateIdUserType from "./AdminUpdateIdUserType";
 import Learn from "./Learn";
+import EmployeeCreate from "./EmployeeCreate";
+import EmployeeList from "./EmployeeList";
+import EmployeeGet from "./EmployeeGet";
+import EmployeeDelete from "./EmployeeDelete";
+import EmployeeUpdate from "./EmployeeUpdate";
 
 function App() {
 
@@ -28,7 +33,11 @@ function App() {
           <Route path="/api/admin/delete/:user_id" element={<AdminDelete/>} />
           <Route path="/api/admin/create/:user_type" element={<AdminCreateUserType/>} />
           <Route path="/api/admin/update/:user_id" element={<AdminUpdateIdUserType/>} />
-
+          <Route path="/api/employee/create" element={<EmployeeCreate/>} />
+          <Route path="/api/employee/list" element={<EmployeeList/>} />
+          <Route path="/api/employee/get/:user_id" element={<EmployeeGet />} />
+          <Route path="/api/employee/delete/:user_id" element={<EmployeeDelete />} />
+          <Route path="/api/employee/update/:user_id" element={<EmployeeUpdate />} />
 
 
           <Route path="/list-employee" element={<ListEmployee />} />
