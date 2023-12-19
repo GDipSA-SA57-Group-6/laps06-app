@@ -61,9 +61,9 @@ export default function AdminDelete() {
   };
 
   return (
-    <div>
-      <button onClick={handleReturnClick}>Return</button>
-      <h2>Delete User</h2>
+    <div className="col-sm-8 py-2 px-5 offset-2 shadow">
+      <button className="mx-2 btn btn-primary" onClick={handleReturnClick}>Return</button>
+      <h2 className="mt-5">Delete User</h2>
       {showSuccessMessage && <p>User deleted successfully!</p>}
         <form>
           <label htmlFor="user_id">User Id</label>
@@ -76,15 +76,16 @@ export default function AdminDelete() {
           <br />
           <label htmlFor="password">Password</label>
           <br />
-          <input type="text" name="password" value={user.passwordElement} readOnly />
+          <input type="password" name="password" value={user.passwordElement} readOnly />
           <br />
           <label htmlFor="userType">User Type</label>
           <br />
           <input type="text" name="userType" value={user.userTypeElement} readOnly />
 
           <br />
-          <button type="button" onClick={handleConfirmDeleteClick}>Confirm Delete</button>
-          <button type="button" onClick={handleCancelDeleteClick}>Cancel & Return to User List</button>
+          <br />
+          <button className="mx-2 btn btn-danger" type="button" onClick={handleConfirmDeleteClick}>Confirm Delete</button>
+          <button className="mx-2 btn btn-secondary" type="button" onClick={handleCancelDeleteClick}>Cancel & Return to User List</button>
         </form>
     </div>
   );

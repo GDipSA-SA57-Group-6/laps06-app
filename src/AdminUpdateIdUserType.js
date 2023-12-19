@@ -83,9 +83,9 @@ export default function AdminUpdateIdUserType() {
   };
 
   return (
-    <div>
-      <button onClick={handleReturnClick}>Return</button>
-      <h2>Edit Object</h2>
+    <div className="col-sm-8 py-2 px-5 offset-2 shadow">
+      <button className="btn btn-primary mx-2" onClick={handleReturnClick}>Return</button>
+      <h2 className="mt-5">Edit Object</h2>
       <form>
         <label htmlFor="user_id">User ID</label>
         <br />
@@ -118,8 +118,9 @@ export default function AdminUpdateIdUserType() {
 
 
         <br />
-        <button onClick={handleEditClick}>Save Changes</button>
-        <button onClick={handleCancelClick}>Cancel & Return to Object List</button>
+        <br />
+        <button className="btn btn-success mx-2" onClick={handleEditClick}>Save Changes</button>
+        <button className="btn btn-secondary mx-2" onClick={handleCancelClick}>Cancel & Return to Object List</button>
       </form>
       {/* Log state or other information for debugging */}
       {console.log("Object State:", object)}

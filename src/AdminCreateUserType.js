@@ -63,9 +63,9 @@ export default function AdminCreateUserType() {
   };
 
   return (
-    <div>
-      <button onClick={handleReturnClick}>Return</button>
-      <h2>Create User</h2>
+    <div className="col-sm-8 py-2 px-5 offset-2 shadow">
+      <button className="mx-2 btn btn-primary" onClick={handleReturnClick}>Return</button>
+      <h2 className="mt-5">Create User</h2>
       {showSuccessMessage && <div className="success-message">{successMessage}</div>}
       <form>
         <label htmlFor="user_type">User Type</label>
@@ -100,8 +100,9 @@ export default function AdminCreateUserType() {
           onChange={(e) => setObject({ ...object, passwordElement: e.target.value })}
         />
         <br />
-        <button onClick={handleAdminCreateUserTypeClick}>Create User</button>
-        <button onClick={handleCancelClick}>Cancel & Return to User List</button>
+        <br />
+        <button className="mx-2 btn btn-success" onClick={handleAdminCreateUserTypeClick}>Create User</button>
+        <button className="mx-2 btn btn-secondary" onClick={handleCancelClick}>Cancel & Return to User List</button>
       </form>
                   {/* Log state or other information for debugging */}
                   {console.log("Object State:", object)}

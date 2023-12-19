@@ -1,4 +1,6 @@
 //App.js
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "/node_modules/bootstrap/dist/js/bootstrap.min.js";
 import React from "react"
 import './App.css';
 import ListEmployee from "./ListEmployee";
@@ -10,6 +12,7 @@ import AdminGet from "./AdminGet";
 import AdminDelete from "./AdminDelete";
 import AdminCreateUserType from "./AdminCreateUserType";
 import AdminUpdateIdUserType from "./AdminUpdateIdUserType";
+import Learn from "./Learn";
 
 function App() {
 
@@ -17,6 +20,7 @@ function App() {
     <BrowserRouter>
     {/*{getNavigationHtml()}*/}
     <div>
+      <Learn/>
         <Routes>
           <Route path="/" element={<AdminList />} />
           <Route path="/api/admin/get/:user_id" element={<AdminGet />} />

@@ -121,8 +121,6 @@ export default function AdminList() {
     setSelectedObject(null);
   };
 
-  */
-
   function renderObjectRows() {
     return myObjectList.map((object) => (
       <tr key={object.user_id}>
@@ -138,20 +136,43 @@ export default function AdminList() {
       </tr>
     ));
   }
+*/
+
+function renderObjectRows() {
+  //<tbody className="text-center">
+  return myObjectList.map((object,index) => (
+    
+    <tr key={object.user_id}>
+      <th className = "text-center" scope="row" key={index}>
+        {index+1}
+      </th>
+      <td className = "text-center">{object.name}</td>
+      <td className = "text-center">{object.password}</td>
+      <td className = "text-center">{object.userType}</td>
+      <td className = "text-center">
+        <button className="btn btn-info mx-2" onClick={() => handleGetObjectClick(object)}>Detail</button>
+        <button className="btn btn-warning mx-2" onClick={() => handleEditObjectClick(object)}>Edit</button>
+        <button className="btn btn-danger mx-2" onClick={() => handleDeleteObjectClick(object)}>Delete</button>
+      </td>
+    </tr>
+  ));
+}
+
+
 
   return (
-    <div>
-      <h2>Object List</h2>
-      <button onClick={handleCreateObjectClick}>Create Object</button>
+    <div className="col-sm-8 py-2 px-5 offset-2 shadow">
+      <h2 className="mt-5">Object List</h2>
+      <button className="btn btn-success mx-2" onClick={handleCreateObjectClick}>Create Object</button>
       {/*{deleteSuccess && <p>Delete successful!</p>}  Show success message */}
-      <table>
+      <table className="table table-boardered table-hover">
         <thead>
-          <tr>
+          <tr className = "text-center">
             <th>User Id</th>
             <th>Name</th>
             <th>Password</th>
             <th>User Type</th>
-            <th>Action</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>{loading ? <p>Loading...</p> : renderObjectRows()}</tbody>

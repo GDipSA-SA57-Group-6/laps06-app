@@ -53,9 +53,9 @@ export default function AdminGet() {
 
 
   return (
-    <div>
-      <button onClick={handleReturnClick}>Return</button>
-      <h2>Object Detail</h2>
+    <div className="col-sm-8 py-2 px-5 offset-2 shadow">
+      <button className="mx-2 btn btn-primary" onClick={handleReturnClick}>Return</button>
+      <h2 className="mt-5">Object Detail</h2>
       <form>
         <label htmlFor="user_id">User Id</label>
         <br />
@@ -67,19 +67,20 @@ export default function AdminGet() {
         <br />
         <label htmlFor="password">Password</label>
         <br />
-        <input type="text" name="password" value={object.passwordElement} />
+        <input type="password" name="password" value={object.passwordElement} />
         <br />
         <label htmlFor="userType">User Type</label>
         <br />
         <input type="text" name="userType" value={object.userTypeElement} />
         <br></br>
-        <button type="button" onClick={handleEditClick}>
+        <br />
+        <button className="mx-2 btn btn-warning" type="button" onClick={handleEditClick}>
           Edit
         </button>
-        <button type="button" onClick={handleDeleteClick}>
+        <button className="mx-2 btn btn-danger" type="button" onClick={handleDeleteClick}>
           Delete
         </button>
-        <button onClick={handleCancelClick}>
+        <button className="mx-2 btn btn-secondary" type="button" onClick={handleCancelClick}>
           Cancel & Return to User List
         </button>
       </form>
