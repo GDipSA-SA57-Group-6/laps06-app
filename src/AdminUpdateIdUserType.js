@@ -8,6 +8,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
+// Add a mapping between user types and their integer representations
+const userTypeMap = {
+  EMPLOYEE: 0,
+  MANAGER: 1,
+  ADMIN: 2,
+};
+
 
 export default function AdminUpdateIdUserType() {
   const { user_id } = useParams();
@@ -43,6 +50,9 @@ export default function AdminUpdateIdUserType() {
     e.preventDefault();
     console.log("Object State:", object);
 
+    // Convert the selected user type to its integer equivalent
+   const userTypeInteger = userTypeMap[object.userTypeElement];
+
     const updatedData = {
       user_id: object.user_idElement,
       name: object.nameElement,
@@ -52,8 +62,10 @@ export default function AdminUpdateIdUserType() {
 
     console.log("Updated Data:", updatedData);
 
+
+
     axios
-    .post(`http://localhost:8080/api/admin/update/${user_id}`, updatedData)
+    .put(`http://localhost:8080/api/admin/update/${user_id}/${userTypeInteger}`, updatedData)
     .then((response) => {
       console.log("Success!");
       console.log(response.updatedData);

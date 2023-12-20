@@ -41,7 +41,7 @@ export default function AdminDelete() {
   const handleConfirmDeleteClick = async () => {
     try {
       // Send a DELETE request to delete the user
-      await axios.delete(`http://localhost:8080/api/admin/delete/${user_id}`);
+      await axios.get(`http://localhost:8080/api/admin/delete/${user_id}`);
       console.log("User deleted successfully!");
 
       // Show success message for 3 seconds
