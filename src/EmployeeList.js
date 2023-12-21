@@ -27,23 +27,24 @@ export default function EmployeeList() {
       });
   }, []);
 
-  /*
+  
   const handleCreateObjectClick = () => {
     navigate(`/api/employee/create`);
   };
-  */
+
 
   const handleGetObjectClick = (object) => {
     navigate(`/api/employee/get/${object.user_id}`);
   };
 
-  const handleEditObjectClick = (object) => {
-    navigate(`/api/employee/update/${object.user_id}`);
+  const handleSetEntitlementClick = (object) => {
+    navigate(`/api/employee/set-entitlement/${object.user_id}`);
   };
-
+/*
   const handleDeleteObjectClick = (object) => {
     navigate(`/api/employee/delete/${object.user_id}`);
   };
+*/
 
     function renderObjectRows() {
     return myObjectList.map((object) => 
@@ -52,7 +53,7 @@ export default function EmployeeList() {
         <td className = "text-center">{object.name}</td>
         <td className = "text-center">{object.password}</td>
         <td className = "text-center">{object.userType}</td>
-        <td className = "text-center">{object.entitlementToAnnualLeave? 'Yes' : 'No'()}</td>
+        <td className="text-center">{object.entitlementToAnnualLeave ? 'Yes' : 'No'}</td>
         <td className = "text-center">{object.employeeType}</td>
         
         {/*
@@ -66,8 +67,8 @@ export default function EmployeeList() {
 
         <td className = "text-center">
             <button className="btn btn-info mx-2" onClick={() => handleGetObjectClick(object)}>Detail</button>
-            <button className="btn btn-warning mx-2" onClick={() => handleEditObjectClick(object)}>Edit</button>
-            <button className="btn btn-danger mx-2" onClick={() => handleDeleteObjectClick(object)}>Delete</button>
+            <button className="btn btn-warning mx-2" onClick={() => handleSetEntitlementClick(object)}>Entitlement</button>
+            {/*<button className="btn btn-danger mx-2" onClick={() => handleDeleteObjectClick(object)}>Delete</button>*/}
         </td>
         </tr>
     );
@@ -76,8 +77,8 @@ export default function EmployeeList() {
 
   return (
     <div>
-      <h2 className="mt-5">Object List</h2>
-      {/*<button className="btn btn-success mx-2" onClick={handleCreateObjectClick}>Create Object</button>*/}
+      <h2 className="mt-5">Employee List</h2>
+      <button className="btn btn-success mx-2" onClick={handleCreateObjectClick}>Create Object</button>
        <table className="table table-boardered table-hover">
         <thead>
           <tr className = "text-center">
@@ -85,7 +86,7 @@ export default function EmployeeList() {
             <th>Name</th>
             <th>Password</th>
             <th>User Type</th>
-            <th>Entitlement To Annual Leave</th>
+            <th>Annual Leave Entitlement</th>
             <th>Employee Type</th>
             {/*
             <th>Belong To Department</th>
@@ -95,7 +96,7 @@ export default function EmployeeList() {
             */}
             <th>Medical Leave Day</th>
             <th>Overworking Hour</th>
-            <th>Actions</th>
+            <th>Update</th>
           </tr>
         </thead>
         <tbody>{loading ? <p>Loading...</p> : renderObjectRows()}</tbody>

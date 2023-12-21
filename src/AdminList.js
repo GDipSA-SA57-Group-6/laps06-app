@@ -150,8 +150,8 @@ function renderObjectRows() {
       <td className = "text-center">{object.userType}</td>
       <td className = "text-center">
         <button className="btn btn-info mx-2" onClick={() => handleGetObjectClick(object)}>Detail</button>
-        <button className="btn btn-warning mx-2" onClick={() => handleEditObjectClick(object)}>Edit</button>
-        <button className="btn btn-danger mx-2" onClick={() => handleDeleteObjectClick(object)}>Delete</button>
+        <button className="btn btn-warning mx-2" onClick={() => handleEditObjectClick(object)}>Modify Role</button>
+        <button className="btn btn-danger mx-2" onClick={() => handleDeleteObjectClick(object)}>Delete </button>
       </td>
     </tr>
   ));
@@ -161,8 +161,8 @@ function renderObjectRows() {
 
   return (
     <div className="col-sm-8 py-2 px-5 offset-2 shadow">
-      <h2 className="mt-5">Object List</h2>
-      <button className="btn btn-success mx-2" onClick={handleCreateObjectClick}>Create Object</button>
+      <h2 className="mt-5">User List</h2>
+      <button className="btn btn-success mx-2" onClick={handleCreateObjectClick}>Create User</button>
       {/*{deleteSuccess && <p>Delete successful!</p>}  Show success message */}
       <table className="table table-boardered table-hover">
         <thead>

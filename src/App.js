@@ -18,6 +18,7 @@ import EmployeeList from "./EmployeeList";
 import EmployeeGet from "./EmployeeGet";
 import EmployeeDelete from "./EmployeeDelete";
 import EmployeeUpdate from "./EmployeeUpdate";
+import EmployeeSetEntitlementUserId from "./EmployeeSetEntitlementUserId";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/api/employee/get/:user_id" element={<EmployeeGet />} />
           <Route path="/api/employee/delete/:user_id" element={<EmployeeDelete />} />
           <Route path="/api/employee/update/:user_id" element={<EmployeeUpdate />} />
+          <Route path="/api/employee/set-entitlement/:user_id" element={<EmployeeSetEntitlementUserId />} />
 
 
           <Route path="/list-employee" element={<ListEmployee />} />

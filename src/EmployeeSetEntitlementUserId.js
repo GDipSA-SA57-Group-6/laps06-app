@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 
-export default function EmployeeUpdate() {
+export default function EmployeeSetEntitlementUserId() {
   const { user_id } = useParams();
   const navigate = useNavigate();
   const [successMessage, setSuccessMessage] = useState("");
@@ -71,7 +71,7 @@ export default function EmployeeUpdate() {
     console.log("Updated Data:", updatedData);
 
     axios
-    .post(`http://localhost:8080/api/employee/update/${user_id}`, updatedData)
+    .get(`http://localhost:8080/api/employee/set-entitlement/${user_id}/${object.entitlementToAnnualLeaveElement}`, updatedData)
     .then((response) => {
       console.log("Success!");
       console.log(response.updatedData);
@@ -127,9 +127,10 @@ export default function EmployeeUpdate() {
         <br />
         <label htmlFor="name">Name</label>
         <br />
-        <input type="text" name="name" value={object.nameElement}  
+        <input type="text" name="name" value={object.nameElement} disabled
                   onChange={(e) => setObject({ ...object, nameElement: e.target.value })}/>
         <br />
+{/*
         <label htmlFor="password">Password</label>
         <br />
         <input type="text" name="password" value={object.passwordElement} disabled
@@ -146,21 +147,20 @@ export default function EmployeeUpdate() {
           <option value="ADMIN">ADMIN</option>
         </select>
         <br />  
+  */}
         <label htmlFor="entitlementToAnnualLeave">Entitlement To Annual Leave</label>
         <br />
         <select
           name="entitlementToAnnualLeave" value={object.entitlementToAnnualLeaveElement}
                   onChange={(e) => setObject({ ...object, entitlementToAnnualLeaveElement: e.target.value })}
           >
-            {/*
           <option value="true">Yes</option>
           <option value="false">No</option>
-            */}
         </select>
         {/*<input type="text" name="entitlementToAnnualLeave" value={object.entitlementToAnnualLeaveElement} 
                   onChange={(e) => setObject({ ...object, entitlementToAnnualLeaveElement: e.target.value })}/>*/}
         <br />
-
+{/*
         <label htmlFor="employeeType">Employee Type</label>
         <br /> 
         <select
@@ -219,8 +219,8 @@ export default function EmployeeUpdate() {
         value={object.over_working_hourElement}
         onChange={(e) => setObject({ ...object, over_working_hourElement: e.target.value })}
         />
+*/}
         <br />
-
         <br />
         <br />
         <button className="btn btn-success mx-2" onClick={handleEditClick}>Save Changes</button>

@@ -85,7 +85,7 @@ export default function AdminDelete() {
           <br />
           <br />
           <button className="mx-2 btn btn-danger" type="button" onClick={handleConfirmDeleteClick}>Confirm Delete</button>
-          <button className="mx-2 btn btn-secondary" type="button" onClick={handleCancelDeleteClick}>Cancel & Return to User List</button>
+          <button className="mx-2 btn btn-secondary" type="button" onClick={handleCancelDeleteClick}>Cancel</button>
         </form>
     </div>
   );

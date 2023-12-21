@@ -55,7 +55,7 @@ export default function AdminGet() {
   return (
     <div className="col-sm-8 py-2 px-5 offset-2 shadow">
       <button className="mx-2 btn btn-primary" onClick={handleReturnClick}>Return</button>
-      <h2 className="mt-5">Object Detail</h2>
+      <h2 className="mt-5">User Detail</h2>
       <form>
         <label htmlFor="user_id">User Id</label>
         <br />
@@ -75,13 +75,13 @@ export default function AdminGet() {
         <br></br>
         <br />
         <button className="mx-2 btn btn-warning" type="button" onClick={handleEditClick}>
-          Edit
+        Modify Role
         </button>
         <button className="mx-2 btn btn-danger" type="button" onClick={handleDeleteClick}>
           Delete
         </button>
         <button className="mx-2 btn btn-secondary" type="button" onClick={handleCancelClick}>
-          Cancel & Return to User List
+          Cancel
         </button>
       </form>
     </div>
