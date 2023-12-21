@@ -1,4 +1,5 @@
 //http://localhost:8080/api/employee/create
+import { AES, enc} from 'crypto-js';
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
@@ -15,8 +16,11 @@ const EmployeeCreate = () => {
   const queryParams = new URLSearchParams(location.search);
 
   const preName = queryParams.get('name');
-  const prePassword = queryParams.get('password');
+  const encryptedPassword = queryParams.get('password');
+  const prePassword = AES.decrypt(encryptedPassword, 'yourSecretKey').toString(enc.Utf8);
   const preUserType = queryParams.get('userType');
+  
+  console.log("Decrypted Password:", prePassword);
 
   const formik = useFormik({
     initialValues: {

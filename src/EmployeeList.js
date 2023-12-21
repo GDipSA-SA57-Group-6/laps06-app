@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function AdminList() {
+export default function EmployeeList() {
   const navigate = useNavigate();
   const [myObjectList, updateMyObjectList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -27,10 +27,11 @@ export default function AdminList() {
       });
   }, []);
 
-
+  /*
   const handleCreateObjectClick = () => {
     navigate(`/api/employee/create`);
   };
+  */
 
   const handleGetObjectClick = (object) => {
     navigate(`/api/employee/get/${object.user_id}`);
@@ -53,9 +54,13 @@ export default function AdminList() {
         <td className = "text-center">{object.userType}</td>
         <td className = "text-center">{object.entitlementToAnnualLeave? 'Yes' : 'No'()}</td>
         <td className = "text-center">{object.employeeType}</td>
-        <td className = "text-center">{object.belongToDepartment.name}</td>
+        
+        {/*
+        <td className = "text-center">{object.belongToDepartment.name!== null ? object.belongToDepartment.name : 'null'}</td>
         <td className="text-center">{object.belongToDepartment.includedBy !== null ? object.belongToDepartment.includedBy : 'null'}</td>
-        <td className = "text-center">{object.belongToDepartment.department_id}</td>
+        <td className = "text-center">{object.belongToDepartment.department_id !== null ? object.belongToDepartment.includedBy : 'null'}</td>
+        */}
+
         <td className = "text-center">{object.medical_leave_day}</td>
         <td className = "text-center">{object.over_working_hour}</td>
 
@@ -72,7 +77,7 @@ export default function AdminList() {
   return (
     <div>
       <h2 className="mt-5">Object List</h2>
-      <button className="btn btn-success mx-2" onClick={handleCreateObjectClick}>Create Object</button>
+      {/*<button className="btn btn-success mx-2" onClick={handleCreateObjectClick}>Create Object</button>*/}
        <table className="table table-boardered table-hover">
         <thead>
           <tr className = "text-center">
@@ -82,9 +87,12 @@ export default function AdminList() {
             <th>User Type</th>
             <th>Entitlement To Annual Leave</th>
             <th>Employee Type</th>
+            {/*
+            <th>Belong To Department</th>
             <th>Belong To Department: Name</th>
             <th>Belong To Department: Included By</th>
             <th>Belong To Department: Department ID</th>
+            */}
             <th>Medical Leave Day</th>
             <th>Overworking Hour</th>
             <th>Actions</th>

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { AES } from 'crypto-js';
 
 export default function AdminCreateUserType() {
   const { user_type } = useParams();
@@ -92,9 +93,14 @@ export default function AdminCreateUserType() {
         }
         */
         if (object.userTypeElement === "EMPLOYEE") {
-          // Replace placeholders with actual values
-          const queryParams = `?name=${encodeURIComponent(object.nameElement)}&password=${encodeURIComponent
-                (object.passwordElement)}&userType=${encodeURIComponent(object.userTypeElement)}`;
+          const originalPassword = object.passwordElement;
+          const encryptedPassword = AES.encrypt(originalPassword, 'yourSecretKey').toString();
+      
+          // Construct the query parameters       
+          const queryParams = `?password=${encodeURIComponent(encryptedPassword)}
+              &userType=${encodeURIComponent(object.userTypeElement)}
+              &name=${encodeURIComponent(object.nameElement)}`;
+
 
           console.log("Constructed Query Parameters:", queryParams);
         
