@@ -40,6 +40,22 @@ export default function EmployeeList() {
   const handleSetEntitlementClick = (object) => {
     navigate(`/api/employee/set-entitlement/${object.user_id}`);
   };
+
+  const handleSetDepartmentClick = (object) => {
+    navigate(`/api/employee/add-employee/${object.user_id}`);
+  };
+
+  const handleGetSuperiorClick = (object) => {
+    navigate(`/api/employee/get-superior/${object.user_id}`);
+  };
+
+  const handleGetSubordinatesClick = (object) => {
+    navigate(`/api/employee/get-subordinates-by-id/${object.user_id}`);
+  };
+  
+  
+
+
 /*
   const handleDeleteObjectClick = (object) => {
     navigate(`/api/employee/delete/${object.user_id}`);
@@ -56,8 +72,9 @@ export default function EmployeeList() {
         <td className="text-center">{object.entitlementToAnnualLeave ? 'Yes' : 'No'}</td>
         <td className = "text-center">{object.employeeType}</td>
         
-        {/*
+        
         <td className = "text-center">{object.belongToDepartment.name!== null ? object.belongToDepartment.name : 'null'}</td>
+        {/*
         <td className="text-center">{object.belongToDepartment.includedBy !== null ? object.belongToDepartment.includedBy : 'null'}</td>
         <td className = "text-center">{object.belongToDepartment.department_id !== null ? object.belongToDepartment.includedBy : 'null'}</td>
         */}
@@ -67,7 +84,12 @@ export default function EmployeeList() {
 
         <td className = "text-center">
             <button className="btn btn-info mx-2" onClick={() => handleGetObjectClick(object)}>Detail</button>
+            <button className="btn btn-warning mx-2" onClick={() => handleGetSuperiorClick(object)}>Get Superior</button>
+            <button className="btn btn-warning mx-2" onClick={() => handleGetSubordinatesClick(object)}>Get Subordinates</button>
             <button className="btn btn-warning mx-2" onClick={() => handleSetEntitlementClick(object)}>Entitlement</button>
+            <button className="btn btn-warning mx-2" onClick={() => handleSetDepartmentClick(object)}>Department</button>
+            
+            
             {/*<button className="btn btn-danger mx-2" onClick={() => handleDeleteObjectClick(object)}>Delete</button>*/}
         </td>
         </tr>
@@ -88,8 +110,8 @@ export default function EmployeeList() {
             <th>User Type</th>
             <th>Annual Leave Entitlement</th>
             <th>Employee Type</th>
-            {/*
             <th>Belong To Department</th>
+            {/*
             <th>Belong To Department: Name</th>
             <th>Belong To Department: Included By</th>
             <th>Belong To Department: Department ID</th>

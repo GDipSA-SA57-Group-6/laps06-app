@@ -99,10 +99,12 @@ export default function EmployeeGet() {
         <br />
         <input type="text" name="belongToDepartment.name" value={object.belongToDepartmentNameElement} disabled/>
         <br />
+        {/*
         <label htmlFor="belongToDepartment.includedBy">Belong To Department: Included By</label>
         <br />
         <input type="text" name="belongToDepartment.includedBy" value={object.belongToDepartmentIncludedByElement || "null"} disabled/>
         <br />
+        */}
         <label htmlFor="belongToDepartment.department_id">Belong To Department: Department ID</label>
         <br />
         <input type="text" name="belongToDepartment.department_id" value={object.belongToDepartmentDepartment_idElement} disabled/>
@@ -123,7 +125,7 @@ export default function EmployeeGet() {
           Delete
         </button>
         <button className="mx-2 btn btn-secondary" type="button" onClick={handleCancelClick}>
-          Cancel & Return to User List
+          Cancel
         </button>
       </form>
     </div>

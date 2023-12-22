@@ -23,6 +23,9 @@ import DepartmentList from "./DepartmentList";
 import DepartmentGet from "./DepartmentGet";
 import DepartmentCreate from "./DepartmentCreate";
 import DepartmentSetManagerById from "./DepartmentSetManagerById";
+import EmployeeAddEmployeeDepartmentId from "./EmployeeAddEmployeeDepartmentId";
+import EmployeeGetSuperior from "./EmployeeGetSuperior";
+import EmployeeGetSubordinatesById from "./EmployeeGetSubordinatesById";
 
 
 
@@ -34,23 +37,28 @@ function App() {
     <div>
       <Learn/>
         <Routes>
-          <Route path="/" element={<DepartmentList />} />
+          <Route path="/" element={<EmployeeList />} />
           <Route path="/api/admin/get/:user_id" element={<AdminGet />} />
           <Route path="/api/admin/list" element={<AdminList />} />
           <Route path="/api/admin/delete/:user_id" element={<AdminDelete/>} />
           <Route path="/api/admin/create/:user_type" element={<AdminCreateUserType/>} />
           <Route path="/api/admin/update/:user_id" element={<AdminUpdateIdUserType/>} />
+          
           <Route path="/api/employee/create" element={<EmployeeCreate/>} />
           <Route path="/api/employee/list" element={<EmployeeList/>} />
           <Route path="/api/employee/get/:user_id" element={<EmployeeGet />} />
           <Route path="/api/employee/delete/:user_id" element={<EmployeeDelete />} />
           <Route path="/api/employee/update/:user_id" element={<EmployeeUpdate />} />
           <Route path="/api/employee/set-entitlement/:user_id" element={<EmployeeSetEntitlementUserId />} />
+          <Route path="/api/employee/add-employee/:user_id" element={<EmployeeAddEmployeeDepartmentId />} />
+          <Route path="/api/employee/get-superior/:user_id" element={<EmployeeGetSuperior />} />
+          <Route path="/api/employee/get-subordinates-by-id/:user_id" element={<EmployeeGetSubordinatesById />} />
+
           <Route path="/api/department/list" element={<DepartmentList/>} />
           <Route path="/api/department/get/:department_id" element={<DepartmentGet />} />
           <Route path="/api/department/create" element={<DepartmentCreate/>} />
           <Route path="/api/department/set-manager-by-id/:department_id" element={<DepartmentSetManagerById/>} />
-
+          
 
 
           <Route path="/list-employee" element={<ListEmployee />} />
