@@ -86,8 +86,8 @@ export default function EmployeeList() {
             <button className="btn btn-info mx-2" onClick={() => handleGetObjectClick(object)}>Detail</button>
             <button className="btn btn-warning mx-2" onClick={() => handleGetSuperiorClick(object)}>Get Superior</button>
             <button className="btn btn-warning mx-2" onClick={() => handleGetSubordinatesClick(object)}>Get Subordinates</button>
-            <button className="btn btn-warning mx-2" onClick={() => handleSetEntitlementClick(object)}>Entitlement</button>
-            <button className="btn btn-warning mx-2" onClick={() => handleSetDepartmentClick(object)}>Department</button>
+            <button className="btn btn-warning mx-2" onClick={() => handleSetEntitlementClick(object)}>Set Entitlement</button>
+            <button className="btn btn-warning mx-2" onClick={() => handleSetDepartmentClick(object)}>Set Department</button>
             
             
             {/*<button className="btn btn-danger mx-2" onClick={() => handleDeleteObjectClick(object)}>Delete</button>*/}
@@ -118,7 +118,7 @@ export default function EmployeeList() {
             */}
             <th>Medical Leave Day</th>
             <th>Overworking Hour</th>
-            <th>Update</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>{loading ? <p>Loading...</p> : renderObjectRows()}</tbody>

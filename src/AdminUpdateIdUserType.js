@@ -1,9 +1,4 @@
-/*this is for http://localhost:8080/api/admin/get/${user_id}
-//Too complicated for front end:
-@PutMapping("/update/{id}/{user_type}")
-//LF change to simpler version:
-@PostMapping("/update/{id}")*/
-
+//http://localhost:8080/api/admin/get/${user_id}/${user_type}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";

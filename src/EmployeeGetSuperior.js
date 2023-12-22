@@ -1,7 +1,7 @@
+//http://localhost:8080/api/employee/get-superior/${user_id}
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-
 
 const EmployeeGetSuperior = () => {
   const { user_id } = useParams();
@@ -42,8 +42,8 @@ const EmployeeGetSuperior = () => {
           <div>            
             <h4>User ID: {employeeInfo.user_id}</h4>
             <form>
-            <br />
-            <strong>Superior Details:</strong>
+              <br />
+              <strong>Superior Details:</strong>
               <br />
               <br />
               <label htmlFor="superior.user_id">User ID: </label>
@@ -52,6 +52,7 @@ const EmployeeGetSuperior = () => {
                 type="text"
                 id="superior.user_id"
                 value={superior.user_id}
+                readOnly
               />
               <br />
               <br />
@@ -61,6 +62,7 @@ const EmployeeGetSuperior = () => {
                 type="text"
                 id="superior.name"
                 value={superior.name}
+                readOnly
               />
               <br />
               <br />
@@ -70,6 +72,7 @@ const EmployeeGetSuperior = () => {
                 type="text"
                 id="superior.userType"
                 value={superior.userType}
+                readOnly
               />
               <br />
               <br />
@@ -79,6 +82,7 @@ const EmployeeGetSuperior = () => {
                 type="text"
                 id="superior.employeeType"
                 value={superior.employeeType}
+                readOnly
               />
               <br />
               <br />
@@ -88,6 +92,7 @@ const EmployeeGetSuperior = () => {
                 type="text"
                 id="superior.belongToDepartment.name"
                 value={superior.belongToDepartment.name}
+                readOnly
               />
               <br />
               <br />
@@ -98,11 +103,15 @@ const EmployeeGetSuperior = () => {
           </div>
         </div>
       ) : (
-        <p>{errorMessage}</p>
+        <div>
+          <p>{errorMessage}</p>
+          <button className="mx-2 btn btn-secondary" type="button" onClick={handleCancelClick}>
+            Return to Employee List
+          </button>
+        </div>
       )}
     </div>
   );
 };
-
 
 export default EmployeeGetSuperior;

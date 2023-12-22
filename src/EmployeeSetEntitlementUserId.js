@@ -1,4 +1,4 @@
-//http://localhost:8080/api/employee/update/${user_id}
+//http://localhost:8080/api/employee/set-entitlement/${user_id}/${object.entitlementToAnnualLeaveElement}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -117,7 +117,7 @@ export default function EmployeeSetEntitlementUserId() {
   return (
     <div className="col-sm-8 py-2 px-5 offset-2 shadow">
       <button className="btn btn-primary mx-2" onClick={handleReturnClick}>Return</button>
-      <h2 className="mt-5">Edit Object</h2>
+      <h2 className="mt-5">Set Entitlement</h2>
       {showSuccessMessage && <div className="success-message">{successMessage}</div>}
       <form>
         <label htmlFor="user_id">User ID</label>
