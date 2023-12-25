@@ -1,4 +1,4 @@
-//http://localhost:8080/api/employee/set-entitlement/${user_id}/${object.entitlementToAnnualLeaveElement}
+//http://localhost:8480/api/employee/set-entitlement/${user_id}/${object.entitlementToAnnualLeaveElement}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -26,7 +26,7 @@ export default function EmployeeSetEntitlementUserId() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/employee/get/${user_id}`)
+      .get(`http://localhost:8480/api/employee/get/${user_id}`)
       .then((response) => {
         setObject((object) => ({
           ...object,
@@ -71,7 +71,7 @@ export default function EmployeeSetEntitlementUserId() {
     console.log("Updated Data:", updatedData);
 
     axios
-    .get(`http://localhost:8080/api/employee/set-entitlement/${user_id}/${object.entitlementToAnnualLeaveElement}`, updatedData)
+    .get(`http://localhost:8480/api/employee/set-entitlement/${user_id}/${object.entitlementToAnnualLeaveElement}`, updatedData)
     .then((response) => {
       console.log("Success!");
       console.log(response.updatedData);

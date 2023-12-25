@@ -1,4 +1,4 @@
-//http://localhost:8080/api/employee/get-subordinates-by-id/${user_id}
+//http://localhost:8480/api/employee/get-subordinates-by-id/${user_id}
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ const EmployeeGetSubordinatesById = () => {
         setLoading(true);
 
         // Fetch subordinates data
-        const response = await axios.get(`http://localhost:8080/api/employee/get-subordinates-by-id/${user_id}`);
+        const response = await axios.get(`http://localhost:8480/api/employee/get-subordinates-by-id/${user_id}`);
         const subordinateList = response.data.map(subordinate => ({
           user_idElement: subordinate.user_id,
           nameElement: subordinate.name,
@@ -36,7 +36,7 @@ const EmployeeGetSubordinatesById = () => {
         updateMyObjectList(subordinateList);
 
         // Fetch current employee information
-        const employeeResponse = await axios.get(`http://localhost:8080/api/employee/get/${user_id}`);
+        const employeeResponse = await axios.get(`http://localhost:8480/api/employee/get/${user_id}`);
         setEmployeeInfo(employeeResponse.data);
 
         setLoading(false);
@@ -144,7 +144,7 @@ const EmployeeGetSubordinatesById = () => {
         setLoading(true);
 
         // Fetch subordinates data
-        const response = await axios.get(`http://localhost:8080/api/employee/get-subordinates-by-id/${user_id}`);
+        const response = await axios.get(`http://localhost:8480/api/employee/get-subordinates-by-id/${user_id}`);
         const subordinateList = response.data.map(subordinate => ({
           user_idElement: subordinate.user_id,
           nameElement: subordinate.name,
@@ -155,7 +155,7 @@ const EmployeeGetSubordinatesById = () => {
         updateMyObjectList(subordinateList);
 
         // Fetch current employee information
-        const employeeResponse = await axios.get(`http://localhost:8080/api/employee/get/${user_id}`);
+        const employeeResponse = await axios.get(`http://localhost:8480/api/employee/get/${user_id}`);
         setEmployeeInfo(employeeResponse.data);
 
         setLoading(false);
@@ -244,7 +244,7 @@ const EmployeeGetSubordinatesById = () => {
         setLoading(true);
 
         // Fetch subordinates data
-        const response = await axios.get(`http://localhost:8080/api/employee/get-subordinates-by-id/${user_id}`);
+        const response = await axios.get(`http://localhost:8480/api/employee/get-subordinates-by-id/${user_id}`);
         const subordinateList = response.data.map(subordinate => ({
           user_idElement: subordinate.user_id,
           nameElement: subordinate.name,
@@ -255,7 +255,7 @@ const EmployeeGetSubordinatesById = () => {
         updateMyObjectList(subordinateList);
 
         // Fetch current employee information
-        const employeeResponse = await axios.get(`http://localhost:8080/api/employee/get/${user_id}`);
+        const employeeResponse = await axios.get(`http://localhost:8480/api/employee/get/${user_id}`);
         setEmployeeInfo(employeeResponse.data);
 
         setLoading(false);
@@ -349,7 +349,7 @@ const EmployeeGetSubordinatesById = () => {
         setLoading(true);
 
         // Fetch subordinates data
-        const response = await axios.get(`http://localhost:8080/api/employee/get-subordinates-by-id/${user_id}`);
+        const response = await axios.get(`http://localhost:8480/api/employee/get-subordinates-by-id/${user_id}`);
         const subordinateList = response.data.map(subordinate => ({
           user_idElement: subordinate.user_id,
           nameElement: subordinate.name,
@@ -364,7 +364,7 @@ const EmployeeGetSubordinatesById = () => {
         updateMyObjectList(subordinateList);
 
         // Fetch current employee information
-        const employeeResponse = await axios.get(`http://localhost:8080/api/employee/get/${user_id}`);
+        const employeeResponse = await axios.get(`http://localhost:8480/api/employee/get/${user_id}`);
         setEmployeeInfo(employeeResponse.data);
 
         setLoading(false);

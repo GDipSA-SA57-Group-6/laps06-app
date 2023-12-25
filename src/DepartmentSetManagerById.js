@@ -15,7 +15,7 @@ export default function DepartmentSetManagerById() {
     useEffect(() => {
         const fetchDepartment = async () => {
           try {
-            const response = await axios.get(`http://localhost:8080/api/department/get/${department_id}`);
+            const response = await axios.get(`http://localhost:8480/api/department/get/${department_id}`);
             setSelectedDepartment(response.data);
           } catch (error) {
             console.error('Error fetching department:', error);
@@ -34,7 +34,7 @@ export default function DepartmentSetManagerById() {
       e.preventDefault();
   
       try {
-        const response = await axios.get(`http://localhost:8080/api/department/set-manager-by-id/${department_id}/${user_id}`);
+        const response = await axios.get(`http://localhost:8480/api/department/set-manager-by-id/${department_id}/${user_id}`);
         setSuccessMessage('Manager set successfully');
         setErrorMessage('');
         console.log(response.data); // Log the updated department data

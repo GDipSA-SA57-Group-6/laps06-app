@@ -1,4 +1,4 @@
-//http://localhost:8080/api/employee/get-superior/${user_id}
+//http://localhost:8480/api/employee/get-superior/${user_id}
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -18,11 +18,11 @@ const EmployeeGetSuperior = () => {
     const fetchData = async () => {
       try {
         // Fetch superior information
-        const response = await axios.get(`http://localhost:8080/api/employee/get-superior/${user_id}`);
+        const response = await axios.get(`http://localhost:8480/api/employee/get-superior/${user_id}`);
         setSuperior(response.data);
 
         // Fetch current employee information
-        const employeeResponse = await axios.get(`http://localhost:8080/api/employee/get/${user_id}`);
+        const employeeResponse = await axios.get(`http://localhost:8480/api/employee/get/${user_id}`);
         setEmployeeInfo(employeeResponse.data);
       } catch (error) {
         setErrorMessage("Boss doesn't have a superior");

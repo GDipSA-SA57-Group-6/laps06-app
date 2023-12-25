@@ -1,4 +1,4 @@
-//http://localhost:8080/api/admin/get/${user_id}
+//http://localhost:8480/api/admin/get/${user_id}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -17,8 +17,8 @@ export default function AdminGet() {
   useEffect(() => {
     console.log("Fetching data...");
     axios
-      .get(`http://localhost:8080/api/admin/get/${user_id}`)
-      //laps: http://localhost:8080/api/admin/get/${user_id}
+      .get(`http://localhost:8480/api/admin/get/${user_id}`)
+      //laps: http://localhost:8480/api/admin/get/${user_id}
       .then((response) => {
         console.log("Response data:", response.data);
         setObject({

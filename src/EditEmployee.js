@@ -18,7 +18,7 @@ export default function EditEmployee() {
   useEffect(() => {
   // Fetch the details of the selected employee using the received ID
     axios
-      .get(`http://localhost:8080/api/employees/${id}`)
+      .get(`http://localhost:8480/api/employees/${id}`)
       .then((response) => {
         setEmployee((employee) => ({
           ...employee,
@@ -41,7 +41,7 @@ export default function EditEmployee() {
       managerId: employee.managerIdElement
     };
     axios
-      .put(`http://localhost:8080/api/employees/${id}`, updatedData)
+      .put(`http://localhost:8480/api/employees/${id}`, updatedData)
       .then((response) => {
         console.log("Success!");
         console.log(response.updatedData);

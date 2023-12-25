@@ -1,4 +1,4 @@
-//http://localhost:8080/api/employee/add-employee/${department_id}/${user_id}
+//http://localhost:8480/api/employee/add-employee/${department_id}/${user_id}
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -15,7 +15,7 @@ export default function EmployeeAddEmployeeDepartmentId() {
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/employee/get/${user_id}`);
+        const response = await axios.get(`http://localhost:8480/api/employee/get/${user_id}`);
         setSelectedEmployee(response.data);
       } catch (error) {
         console.error('Error fetching employee:', error);
@@ -24,7 +24,7 @@ export default function EmployeeAddEmployeeDepartmentId() {
 
     const fetchDepartments = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/department/list');
+        const response = await axios.get('http://localhost:8480/api/department/list');
         setDepartmentList(response.data);
       } catch (error) {
         console.error('Error fetching departments:', error);
@@ -50,7 +50,7 @@ export default function EmployeeAddEmployeeDepartmentId() {
         },
       };
 
-      const response = await axios.get(`http://localhost:8080/api/employee/add-employee/${department_id}/${user_id}`, updatedData);
+      const response = await axios.get(`http://localhost:8480/api/employee/add-employee/${department_id}/${user_id}`, updatedData);
       setSuccessMessage('Department set successfully');
       setErrorMessage('');
       console.log(response.data); // Log the updated employee data
@@ -123,7 +123,7 @@ export default function EmployeeAddEmployeeDepartmentId() {
     useEffect(() => {
         const fetchEmployee = async () => {
           try {
-            const response = await axios.get(`http://localhost:8080/api/employee/get/${user_id}`);
+            const response = await axios.get(`http://localhost:8480/api/employee/get/${user_id}`);
             setSelectedEmployee(response.data);
           } catch (error) {
             console.error('Error fetching employee:', error);
@@ -142,7 +142,7 @@ export default function EmployeeAddEmployeeDepartmentId() {
       e.preventDefault();
   
       try {
-        const response = await axios.get(`http://localhost:8080/api/employee/add-employee/${department_id}/${user_id}`);
+        const response = await axios.get(`http://localhost:8480/api/employee/add-employee/${department_id}/${user_id}`);
         setSuccessMessage('Department set successfully');
         setErrorMessage('');
         console.log(response.data); // Log the updated employee data

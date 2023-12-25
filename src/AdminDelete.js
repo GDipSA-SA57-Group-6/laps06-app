@@ -1,4 +1,4 @@
-//http://localhost:8080/api/admin/delete/${user_id}
+//http://localhost:8480/api/admin/delete/${user_id}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ export default function AdminDelete() {
     // Fetch the details of the selected user using the received user_id
     console.log("Fetching data...");
     axios
-      .get(`http://localhost:8080/api/admin/get/${user_id}`)
+      .get(`http://localhost:8480/api/admin/get/${user_id}`)
       .then((response) => {
         setUser({
           user_idElement: response.data.user_id,
@@ -41,7 +41,7 @@ export default function AdminDelete() {
   const handleConfirmDeleteClick = async () => {
     try {
       // Send a DELETE request to delete the user
-      await axios.get(`http://localhost:8080/api/admin/delete/${user_id}`);
+      await axios.get(`http://localhost:8480/api/admin/delete/${user_id}`);
       console.log("User deleted successfully!");
 
       // Show success message for 3 seconds
@@ -93,7 +93,7 @@ export default function AdminDelete() {
 
 
 /*
-//http://localhost:8080/api/admin/get/${user_id}
+//http://localhost:8480/api/admin/get/${user_id}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -115,7 +115,7 @@ export default function AdminDelete() {
     // Fetch the details of the selected user using the received user_id
     console.log("Fetching data...");
     axios
-      .get(`http://localhost:8080/api/admin/get/${user_id}`)
+      .get(`http://localhost:8480/api/admin/get/${user_id}`)
       .then((response) => {
         setUser({
           user_idElement: response.data.user_id,
@@ -136,7 +136,7 @@ export default function AdminDelete() {
   const handleConfirmDeleteClick = async () => {
     try {
       // Send a DELETE request to delete the user
-      await axios.delete(`http://localhost:8080/api/admin/delete/${user_id}`);
+      await axios.delete(`http://localhost:8480/api/admin/delete/${user_id}`);
       console.log("User deleted successfully!");
 
       // Show success message for 3 seconds

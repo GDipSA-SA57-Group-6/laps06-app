@@ -28,7 +28,7 @@ export default function CreateEmployee() {
       managerId: managerIdElement.current.value,
     };
     axios
-      .post("http://localhost:8080/api/employees", data)
+      .post("http://localhost:8480/api/employees", data)
       .then((response) => {
         console.log("Success!");
         console.log(response.data);

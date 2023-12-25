@@ -1,4 +1,4 @@
-//http://localhost:8080/api/admin/get/${user_id}/${user_type}
+//http://localhost:8480/api/admin/get/${user_id}/${user_type}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -26,7 +26,7 @@ export default function AdminUpdateIdUserType() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/admin/get/${user_id}`)
+      .get(`http://localhost:8480/api/admin/get/${user_id}`)
       .then((response) => {
         setObject((object) => ({
           ...object,
@@ -60,7 +60,7 @@ export default function AdminUpdateIdUserType() {
 
 
     axios
-    .put(`http://localhost:8080/api/admin/update/${user_id}/${userTypeInteger}`, updatedData)
+    .put(`http://localhost:8480/api/admin/update/${user_id}/${userTypeInteger}`, updatedData)
     .then((response) => {
       console.log("Success!");
       console.log(response.updatedData);
@@ -170,7 +170,7 @@ export default function AdminUpdateIdUserType() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/admin/get/${user_id}`)
+      .get(`http://localhost:8480/api/admin/get/${user_id}`)
       .then((response) => {
         setObject((object) => ({
           ...object,
@@ -199,7 +199,7 @@ export default function AdminUpdateIdUserType() {
     console.log("Updated Data:", updatedData);
 
     axios
-      .post(`http://localhost:8080/api/admin/update/${user_id}`, updatedData)
+      .post(`http://localhost:8480/api/admin/update/${user_id}`, updatedData)
       .then((response) => {
         console.log("Success!");
         console.log(response.updatedData);

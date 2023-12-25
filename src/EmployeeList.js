@@ -1,4 +1,4 @@
-//http://localhost:8080/api/employee/list
+//http://localhost:8480/api/employee/list
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ export default function EmployeeList() {
     setLoading(true);
 
     axios
-      .get("http://localhost:8080/api/employee/list")
+      .get("http://localhost:8480/api/employee/list")
 
       .then((response) => {
         updateMyObjectList(response.data);

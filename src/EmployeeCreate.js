@@ -1,4 +1,4 @@
-//http://localhost:8080/api/employee/create
+//http://localhost:8480/api/employee/create
 import { AES, enc} from 'crypto-js';
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -17,8 +17,19 @@ const EmployeeCreate = () => {
 
   const preName = queryParams.get('name');
   const encryptedPassword = queryParams.get('password');
-  const prePassword = AES.decrypt(encryptedPassword, 'yourSecretKey').toString(enc.Utf8);
+  let prePassword = '';
   const preUserType = queryParams.get('userType');
+
+  if (encryptedPassword) {
+    try {
+      prePassword = AES.decrypt(encryptedPassword, 'yourSecretKey').toString(enc.Utf8);
+    } catch (error) {
+      console.error('Error decrypting password:', error);
+      // 可以设置一个错误状态并在UI中显示错误消息
+      setErrorMessage('Failed to decrypt password. Invalid or corrupted data.');
+    }
+  }
+
   
   console.log("Decrypted Password:", prePassword);
 
@@ -39,7 +50,7 @@ const EmployeeCreate = () => {
 
     onSubmit: async (values) => {
       try {
-        const response = await axios.post('http://localhost:8080/api/employee/create', values);
+        const response = await axios.post('http://localhost:8480/api/employee/create', values);
         setSuccessMessage('Employee created successfully');
         setErrorMessage('');
         console.log(response.data); // Log the created employee data

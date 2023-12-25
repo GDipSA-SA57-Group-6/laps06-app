@@ -1,4 +1,4 @@
-//http://localhost:8080/api/department/create
+//http://localhost:8480/api/department/create
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
@@ -23,7 +23,7 @@ export default function DepartmentCreate() {
 
     onSubmit: async (values) => {
       try {
-        const response = await axios.post(`http://localhost:8080/api/department/create`, values);
+        const response = await axios.post(`http://localhost:8480/api/department/create`, values);
         console.log(response.data); // Log the created department data
         setSuccessMessage(
           <span style={{ color: 'green' }}>Department successfully created!</span>

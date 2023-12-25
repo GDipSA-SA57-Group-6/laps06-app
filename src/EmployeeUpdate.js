@@ -1,4 +1,4 @@
-//http://localhost:8080/api/employee/update/${user_id}
+//http://localhost:8480/api/employee/update/${user_id}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -26,7 +26,7 @@ export default function EmployeeUpdate() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/employee/get/${user_id}`)
+      .get(`http://localhost:8480/api/employee/get/${user_id}`)
       .then((response) => {
         setObject((object) => ({
           ...object,
@@ -71,7 +71,7 @@ export default function EmployeeUpdate() {
     console.log("Updated Data:", updatedData);
 
     axios
-    .post(`http://localhost:8080/api/employee/update/${user_id}`, updatedData)
+    .post(`http://localhost:8480/api/employee/update/${user_id}`, updatedData)
     .then((response) => {
       console.log("Success!");
       console.log(response.updatedData);

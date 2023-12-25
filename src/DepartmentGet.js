@@ -1,4 +1,4 @@
-//http://localhost:8080/api/department/get/${user_id}
+//http://localhost:8480/api/department/get/${user_id}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ export default function DepartmentGet() {
     useEffect(() => {
       console.log("Fetching data...");
       axios
-        .get(`http://localhost:8080/api/department/get/${department_id}`)
+        .get(`http://localhost:8480/api/department/get/${department_id}`)
         .then((response) => {
           console.log("Response data:", response.data);
           setObject({

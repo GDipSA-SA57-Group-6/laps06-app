@@ -11,7 +11,7 @@ export default function ListEmployee() {
   useEffect(() => {
     console.log("Retrieve the employee");
     axios
-      .get("http://localhost:8080/api/employees")
+      .get("http://localhost:8480/api/employees")
       .then((response) => {
         updateMyEmployeeList(response.data);
         console.log(response.data);
@@ -41,7 +41,7 @@ export default function ListEmployee() {
   const handleConfirmDeleteClick = async () => {
     try {
       // Send a DELETE request to delete the employee
-      await axios.delete(`http://localhost:8080/api/employees/${selectedEmployee.id}`);
+      await axios.delete(`http://localhost:8480/api/employees/${selectedEmployee.id}`);
       // Update the employee list after deletion
       const updatedEmployeeList = myEmployeeList.filter(
         (employee) => employee.id !== selectedEmployee.id

@@ -1,4 +1,4 @@
-//http://localhost:8080/api/admin/list
+//http://localhost:8480/api/admin/list
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -15,9 +15,9 @@ export default function AdminList() {
     setLoading(true);
 
     axios
-      .get("http://localhost:8080/api/admin/list")
-      //laps: http://localhost:8080/api/admin/list
-      //LFtest: http://localhost:8080/api/employees
+      .get("http://localhost:8480/api/admin/list")
+      //laps: http://localhost:8480/api/admin/list
+      //LFtest: http://localhost:8480/api/employees
 
       .then((response) => {
         updateMyObjectList(response.data);
@@ -95,9 +95,9 @@ export default function AdminList() {
       updateMyObjectList(updatedObjectList);
 
       // Send a DELETE request to delete the object
-      await axios.get(`http://localhost:8080/api/employees/${selectedObject.id}`);
-      //laps: http://localhost:8080/api/admin/delete/${selectedObject.id}
-      //LFtest: http://localhost:8080/api/employees/${selectedObject.id}
+      await axios.get(`http://localhost:8480/api/employees/${selectedObject.id}`);
+      //laps: http://localhost:8480/api/admin/delete/${selectedObject.id}
+      //LFtest: http://localhost:8480/api/employees/${selectedObject.id}
 
       // Set delete success status
       setDeleteSuccess(true);

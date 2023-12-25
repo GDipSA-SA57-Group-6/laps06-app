@@ -1,4 +1,4 @@
-//http://localhost:8080/api/admin/create/${user_type}
+//http://localhost:8480/api/admin/create/${user_type}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -118,7 +118,7 @@ export default function AdminCreateUserType() {
         }
 
         axios
-          .post(`http://localhost:8080/api/admin/create/${user_type}`, updatedData)
+          .post(`http://localhost:8480/api/admin/create/${user_type}`, updatedData)
           .then((response) => {
             console.log("Success!");
             console.log("Response Data:", response.data);
@@ -261,7 +261,7 @@ export default function AdminCreateUserType() {
     };
 
     axios
-      .post(`http://localhost:8080/api/admin/create/${user_type}`, updatedData)
+      .post(`http://localhost:8480/api/admin/create/${user_type}`, updatedData)
       .then((response) => {
         console.log("Success!");
         console.log("Response Data:", response.data);
@@ -337,7 +337,7 @@ export default function AdminCreateUserType() {
 
 /*
     axios
-      .post(`http://localhost:8080/api/admin/create/${user_type}`, updatedData)
+      .post(`http://localhost:8480/api/admin/create/${user_type}`, updatedData)
       .then((response) => {
           console.log("Success!");
           console.log("Response Data:", response.data);
@@ -437,7 +437,7 @@ export default function AdminCreateUserType() {
 
 
     axios
-      .post(`http://localhost:8080/api/admin/create/${user_type}`, updatedData)
+      .post(`http://localhost:8480/api/admin/create/${user_type}`, updatedData)
       .then((response) => {
         console.log("Success!");
         console.log("Response Data:", response.data);

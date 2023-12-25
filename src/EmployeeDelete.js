@@ -1,4 +1,4 @@
-//http://localhost:8080/api/employee/delete/${user_id}
+//http://localhost:8480/api/employee/delete/${user_id}
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -27,7 +27,7 @@ export default function EmployeeDelete() {
     // Fetch the details of the selected object using the received user_id
     console.log("Fetching data...");
     axios
-      .get(`http://localhost:8080/api/admin/get/${user_id}`)
+      .get(`http://localhost:8480/api/admin/get/${user_id}`)
       .then((response) => {
         setObject({
           user_idElement: response.data.user_id,
@@ -55,7 +55,7 @@ export default function EmployeeDelete() {
   const handleConfirmDeleteClick = async () => {
     try {
       // Send a DELETE request to delete the object
-      await axios.delete(`http://localhost:8080/api/employee/delete/${user_id}`);
+      await axios.delete(`http://localhost:8480/api/employee/delete/${user_id}`);
       console.log("User deleted successfully!");
 
       // Show success message for 3 seconds

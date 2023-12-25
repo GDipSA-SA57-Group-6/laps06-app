@@ -1,4 +1,4 @@
-//http://localhost:8080/api/department/list
+//http://localhost:8480/api/department/list
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ export default function DepartmentList() {
     setLoading(true);
 
     axios
-      .get("http://localhost:8080/api/department/list")
+      .get("http://localhost:8480/api/department/list")
 
       .then((response) => {
         updateMyObjectList(response.data);
